@@ -18,7 +18,7 @@ public class AddressInfoStepController implements WizardFxStepController
     @Override
     public boolean canEnter()
     {
-        return false;
+        return true;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class AddressInfoStepController implements WizardFxStepController
     @Override
     public boolean canExit()
     {
-        return false;
+        return true;
     }
 
     @Override

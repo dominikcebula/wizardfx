@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class WizardFxStep
 {
-    private ObjectProperty<Class<? extends WizardFxStepController>> controller = new SimpleObjectProperty<>();
+    private final ObjectProperty<Class<? extends WizardFxStepController>> controller = new SimpleObjectProperty<>();
 
     public Class<? extends WizardFxStepController> getController()
     {

@@ -3,5 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane>
-    <Button text="Customer Info"/>
+    <center>
+        <Button text="Customer Info"/>
+    </center>
 </BorderPane>

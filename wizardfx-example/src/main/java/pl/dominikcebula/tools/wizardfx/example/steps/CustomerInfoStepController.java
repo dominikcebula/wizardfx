@@ -19,7 +19,7 @@ public class CustomerInfoStepController implements WizardFxStepController
     @Override
     public boolean canEnter()
     {
-        return false;
+        return true;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class CustomerInfoStepController implements WizardFxStepController
     @Override
     public boolean canExit()
     {
-        return false;
+        return true;
     }
 
     @Override

@@ -12,7 +12,7 @@ import static javafx.collections.FXCollections.observableArrayList;
 @DefaultProperty("steps")
 public class WizardFx extends BorderPane
 {
-    private ObservableList<WizardFxStep> steps = observableArrayList();
+    private final ObservableList<WizardFxStep> steps = observableArrayList();
 
     public WizardFx() throws IOException
     {

@@ -2,38 +2,51 @@ package pl.dominikcebula.tools.wizardfx.ds;
 
 public class CurrentStep
 {
-    private int currentStep = 0;
-    private int lastStep = 0;
+    private final int currentStepId;
+    private final int lastStepId;
 
-    public int getCurrentStep()
+    public CurrentStep(int currentStepId, int lastStepId)
     {
-        return currentStep;
+        this.currentStepId = currentStepId;
+        this.lastStepId = lastStepId;
     }
 
-    public int getLastStep()
+    public int getCurrentStepId()
     {
-        return lastStep;
+        return currentStepId;
     }
 
-    public void previousStep()
+    public int getLastStepId()
     {
-        if (currentStep > 0)
+        return lastStepId;
+    }
+
+    public CurrentStep previousStep()
+    {
+        if (currentStepId > 0)
         {
-            setStep(currentStep - 1);
+            return new CurrentStep(currentStepId - 1, currentStepId);
+        }
+        else
+        {
+            return this;
         }
     }
 
-    public void nextStep(int maximumStep)
+    public CurrentStep nextStep(int maximumStep)
     {
-        if (currentStep < maximumStep)
+        if (currentStepId < maximumStep)
         {
-            setStep(currentStep + 1);
+            return new CurrentStep(currentStepId + 1, currentStepId);
+        }
+        else
+        {
+            return this;
         }
     }
 
-    public void setStep(int step)
+    public CurrentStep getFinishStep(int finishStep)
     {
-        lastStep = currentStep;
-        currentStep = step;
+        return new CurrentStep(finishStep, currentStepId);
     }
 }

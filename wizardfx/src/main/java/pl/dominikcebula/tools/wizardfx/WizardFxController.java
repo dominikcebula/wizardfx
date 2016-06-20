@@ -16,13 +16,15 @@ import java.util.List;
 public class WizardFxController
 {
     @FXML
+    @SuppressWarnings("unused")
     private BorderPane stepContent;
     @FXML
+    @SuppressWarnings("unused")
     private VBox stepListContent;
-    private List<WizardFxController> controllers = new LinkedList<>();
-    private List<Label> labels = new LinkedList<>();
-    private List<Node> contents = new LinkedList<>();
-    private CurrentStep currentStep = new CurrentStep();
+    private final List<WizardFxStepController> controllers = new LinkedList<>();
+    private final List<Label> labels = new LinkedList<>();
+    private final List<Node> contents = new LinkedList<>();
+    private CurrentStep currentStep = new CurrentStep(0, 0);
 
     public void updateSteps(ListChangeListener.Change<? extends WizardFxStep> event)
     {
@@ -35,6 +37,7 @@ public class WizardFxController
     private void addStep(WizardFxStep step)
     {
         WizardFxStepController controller = createController(step);
+        controllers.add(controller);
 
         Label labelForStep = createLabelForController(controller);
         labels.add(labelForStep);
@@ -42,7 +45,7 @@ public class WizardFxController
 
         contents.add(createContentForController(controller));
 
-        updateStepLabel(currentStep.getCurrentStep(), currentStep.getLastStep());
+        updateStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
     }
 
     private WizardFxStepController createController(WizardFxStep step)
@@ -76,27 +79,69 @@ public class WizardFxController
         }
     }
 
+    @SuppressWarnings("unused")
     public void onPrevious()
     {
-        currentStep.previousStep();
-        updateStepLabel(currentStep.getCurrentStep(), currentStep.getLastStep());
+        if (canMove(currentStep, currentStep.previousStep()))
+        {
+            getController(currentStep).onExit();
+            currentStep = currentStep.previousStep();
+            getController(currentStep).onEnter();
+            updateStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
+        }
     }
 
+    @SuppressWarnings("unused")
     public void onNext()
     {
-        currentStep.nextStep(labels.size() - 1);
-        updateStepLabel(currentStep.getCurrentStep(), currentStep.getLastStep());
+        if (canMove(currentStep, currentStep.nextStep(labels.size() - 1)))
+        {
+            getController(currentStep).onExit();
+            currentStep = currentStep.nextStep(labels.size() - 1);
+            getController(currentStep).onEnter();
+            updateStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
+        }
     }
 
+    @SuppressWarnings("unused")
     public void onFinish()
     {
-        currentStep.setStep(labels.size() - 1);
-        updateStepLabel(currentStep.getCurrentStep(), currentStep.getLastStep());
+        if (canMove(currentStep, currentStep.getFinishStep(labels.size() - 1)))
+        {
+            getController(currentStep).onExit();
+            currentStep = currentStep.getFinishStep(labels.size() - 1);
+            getController(currentStep).onEnter();
+            updateStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
+        }
     }
 
-    public void updateStepLabel(int currentStep, int lastStep)
+    private void updateStep(int currentStep, int lastStep)
+    {
+        updateLabelForStep(currentStep, lastStep);
+        updateContentForStep(currentStep);
+    }
+
+    private void updateLabelForStep(int currentStep, int lastStep)
     {
         labels.get(lastStep).getStyleClass().clear();
         labels.get(currentStep).getStyleClass().add("active-step");
+    }
+
+    private void updateContentForStep(int currentStep)
+    {
+        stepContent.setCenter(contents.get(currentStep));
+    }
+
+    private boolean canMove(CurrentStep from, CurrentStep to)
+    {
+        WizardFxStepController controllerFrom = getController(from);
+        WizardFxStepController controllerTo = getController(to);
+
+        return controllerFrom.canExit() && controllerTo.canEnter();
+    }
+
+    private WizardFxStepController getController(CurrentStep step)
+    {
+        return controllers.get(step.getCurrentStepId());
     }
 }
