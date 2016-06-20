@@ -12,13 +12,13 @@ import static javafx.collections.FXCollections.observableArrayList;
 @DefaultProperty("steps")
 public class WizardFx extends BorderPane
 {
-    private final ObservableList<WizardFxStep> steps = observableArrayList();
+    private final ObservableList<Controller> steps = observableArrayList();
+    private WizardFxController controller = new WizardFxController();
 
     public WizardFx() throws IOException
     {
         getStylesheets().add(getClass().getResource("wizardfx.css").toExternalForm());
 
-        WizardFxController controller = new WizardFxController();
         setCenter(load("wizardfx-step-content.fxml", controller));
         setLeft(load("wizardfx-step-list.fxml", controller));
         setBottom(load("wizardfx-step-controls.fxml", controller));
@@ -32,8 +32,18 @@ public class WizardFx extends BorderPane
         return loader.load();
     }
 
+    public String getControllerPackage()
+    {
+        return controller.getControllerPackage();
+    }
+
+    public void setControllerPackage(String controllerPackage)
+    {
+        controller.setControllerPackage(controllerPackage);
+    }
+
     @SuppressWarnings("unused")
-    public ObservableList<WizardFxStep> getSteps()
+    public ObservableList<Controller> getSteps()
     {
         return steps;
     }

@@ -25,8 +25,9 @@ public class WizardFxController
     private final List<Label> labels = new LinkedList<>();
     private final List<Node> contents = new LinkedList<>();
     private CurrentStep currentStep = new CurrentStep(0, 0);
+    private String controllerPackage;
 
-    public void updateSteps(ListChangeListener.Change<? extends WizardFxStep> event)
+    public void updateSteps(ListChangeListener.Change<? extends Controller> event)
     {
         while (event.next())
         {
@@ -34,29 +35,38 @@ public class WizardFxController
         }
     }
 
-    private void addStep(WizardFxStep step)
+    private void addStep(Controller controller)
     {
-        WizardFxStepController controller = createController(step);
-        controllers.add(controller);
+        WizardFxStepController stepController = createController(controller);
+        controllers.add(stepController);
 
-        Label labelForStep = createLabelForController(controller);
+        Label labelForStep = createLabelForController(stepController);
         labels.add(labelForStep);
         stepListContent.getChildren().add(labelForStep);
 
-        contents.add(createContentForController(controller));
+        contents.add(createContentForController(stepController));
 
         moveToStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
     }
 
-    private WizardFxStepController createController(WizardFxStep step)
+    private WizardFxStepController createController(Controller controller)
     {
         try
         {
-            return step.getController().newInstance();
+            String controllerClassName;
+            if (controllerPackage != null)
+            {
+                controllerClassName = String.format("%s.%s", controllerPackage, controller.getName());
+            }
+            else
+            {
+                controllerClassName = controller.getName();
+            }
+            return (WizardFxStepController) Class.forName(controllerClassName).newInstance();
         }
-        catch (InstantiationException | IllegalAccessException e)
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException e)
         {
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException(e.getMessage(), e);
         }
     }
 
@@ -75,7 +85,7 @@ public class WizardFxController
         }
         catch (IOException e)
         {
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException(e.getMessage(), e);
         }
     }
 
@@ -143,5 +153,15 @@ public class WizardFxController
     private WizardFxStepController getController(CurrentStep step)
     {
         return controllers.get(step.getCurrentStepId());
+    }
+
+    public void setControllerPackage(String controllerPackage)
+    {
+        this.controllerPackage = controllerPackage;
+    }
+
+    public String getControllerPackage()
+    {
+        return controllerPackage;
     }
 }

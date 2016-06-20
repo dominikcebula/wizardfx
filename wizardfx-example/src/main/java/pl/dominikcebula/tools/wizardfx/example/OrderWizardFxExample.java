@@ -17,8 +17,8 @@ public class OrderWizardFxExample extends Application
     {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("wizardfx-example.fxml"))));
 
-        primaryStage.setHeight(400);
-        primaryStage.setWidth(400);
+        primaryStage.setWidth(820);
+        primaryStage.setHeight(500);
         primaryStage.show();
     }
 }

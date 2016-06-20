@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:id="stepListContent">
+    <spacing>2</spacing>
+    <padding>
+        <Insets left="5" top="5" right="25" bottom="5"/>
+    </padding>
 </VBox>

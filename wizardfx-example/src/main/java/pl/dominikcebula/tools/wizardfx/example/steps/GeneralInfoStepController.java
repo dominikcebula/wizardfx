@@ -2,6 +2,7 @@ package pl.dominikcebula.tools.wizardfx.example.steps;
 
 import pl.dominikcebula.tools.wizardfx.WizardFxStepController;
 
+@SuppressWarnings("unused")
 public class GeneralInfoStepController implements WizardFxStepController
 {
     @Override
