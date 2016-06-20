@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" alignment="BASELINE_RIGHT">
+    <Button text="Previous" onAction="#onPrevious"/>
+    <Button text="Next" onAction="#onNext"/>
+    <Button text="Finish" onAction="#onFinish"/>
+</HBox>

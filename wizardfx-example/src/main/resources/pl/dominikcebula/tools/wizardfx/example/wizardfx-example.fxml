@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import pl.dominikcebula.tools.wizardfx.*?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <WizardFx>
+            <WizardFxStep controller="pl.dominikcebula.tools.wizardfx.example.steps.GeneralInfoStepController"/>
+            <WizardFxStep controller="pl.dominikcebula.tools.wizardfx.example.steps.CustomerInfoStepController"/>
+            <WizardFxStep controller="pl.dominikcebula.tools.wizardfx.example.steps.AddressInfoStepController"/>
+            <WizardFxStep controller="pl.dominikcebula.tools.wizardfx.example.steps.SummaryStepController"/>
+        </WizardFx>
+    </center>
+</BorderPane>
