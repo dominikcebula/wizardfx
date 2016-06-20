@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import pl.dominikcebula.tools.wizardfx.ds.CurrentStep;
 
@@ -17,7 +17,7 @@ public class WizardFxController
 {
     @FXML
     @SuppressWarnings("unused")
-    private BorderPane stepContent;
+    private Pane stepContent;
     @FXML
     @SuppressWarnings("unused")
     private VBox stepListContent;
@@ -45,7 +45,7 @@ public class WizardFxController
 
         contents.add(createContentForController(controller));
 
-        updateStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
+        moveToStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
     }
 
     private WizardFxStepController createController(WizardFxStep step)
@@ -82,40 +82,40 @@ public class WizardFxController
     @SuppressWarnings("unused")
     public void onPrevious()
     {
-        if (canMove(currentStep, currentStep.previousStep()))
+        if (canMoveToStep(currentStep, currentStep.previousStep()))
         {
             getController(currentStep).onExit();
             currentStep = currentStep.previousStep();
             getController(currentStep).onEnter();
-            updateStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
+            moveToStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
         }
     }
 
     @SuppressWarnings("unused")
     public void onNext()
     {
-        if (canMove(currentStep, currentStep.nextStep(labels.size() - 1)))
+        if (canMoveToStep(currentStep, currentStep.nextStep(labels.size() - 1)))
         {
             getController(currentStep).onExit();
             currentStep = currentStep.nextStep(labels.size() - 1);
             getController(currentStep).onEnter();
-            updateStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
+            moveToStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
         }
     }
 
     @SuppressWarnings("unused")
     public void onFinish()
     {
-        if (canMove(currentStep, currentStep.getFinishStep(labels.size() - 1)))
+        if (canMoveToStep(currentStep, currentStep.getFinishStep(labels.size() - 1)))
         {
             getController(currentStep).onExit();
             currentStep = currentStep.getFinishStep(labels.size() - 1);
             getController(currentStep).onEnter();
-            updateStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
+            moveToStep(currentStep.getCurrentStepId(), currentStep.getLastStepId());
         }
     }
 
-    private void updateStep(int currentStep, int lastStep)
+    private void moveToStep(int currentStep, int lastStep)
     {
         updateLabelForStep(currentStep, lastStep);
         updateContentForStep(currentStep);
@@ -129,10 +129,10 @@ public class WizardFxController
 
     private void updateContentForStep(int currentStep)
     {
-        stepContent.setCenter(contents.get(currentStep));
+        stepContent.getChildren().setAll(contents.get(currentStep));
     }
 
-    private boolean canMove(CurrentStep from, CurrentStep to)
+    private boolean canMoveToStep(CurrentStep from, CurrentStep to)
     {
         WizardFxStepController controllerFrom = getController(from);
         WizardFxStepController controllerTo = getController(to);
