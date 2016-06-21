@@ -5,6 +5,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
+import pl.dominikcebula.tools.wizardfx.controller.ControllerClass;
 
 import java.io.IOException;
 

@@ -3,9 +3,9 @@ package pl.dominikcebula.tools.wizardfx.graph;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import pl.dominikcebula.tools.wizardfx.Controller;
-import pl.dominikcebula.tools.wizardfx.ControllerClass;
-import pl.dominikcebula.tools.wizardfx.ControllerFactory;
+import pl.dominikcebula.tools.wizardfx.controller.Controller;
+import pl.dominikcebula.tools.wizardfx.controller.ControllerClass;
+import pl.dominikcebula.tools.wizardfx.controller.ControllerFactory;
 
 import java.io.IOException;
 

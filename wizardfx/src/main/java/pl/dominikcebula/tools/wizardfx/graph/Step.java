@@ -2,7 +2,7 @@ package pl.dominikcebula.tools.wizardfx.graph;
 
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import pl.dominikcebula.tools.wizardfx.Controller;
+import pl.dominikcebula.tools.wizardfx.controller.Controller;
 
 public class Step
 {

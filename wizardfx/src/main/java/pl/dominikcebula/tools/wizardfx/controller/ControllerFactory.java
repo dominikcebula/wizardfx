@@ -1,4 +1,4 @@
-package pl.dominikcebula.tools.wizardfx;
+package pl.dominikcebula.tools.wizardfx.controller;
 
 public class ControllerFactory
 {

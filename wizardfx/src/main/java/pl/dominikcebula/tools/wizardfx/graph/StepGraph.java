@@ -1,6 +1,6 @@
 package pl.dominikcebula.tools.wizardfx.graph;
 
-import pl.dominikcebula.tools.wizardfx.Controller;
+import pl.dominikcebula.tools.wizardfx.controller.Controller;
 
 import java.util.LinkedList;
 import java.util.List;

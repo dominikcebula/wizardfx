@@ -3,6 +3,7 @@ package pl.dominikcebula.tools.wizardfx;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import pl.dominikcebula.tools.wizardfx.controller.ControllerClass;
 import pl.dominikcebula.tools.wizardfx.graph.Step;
 import pl.dominikcebula.tools.wizardfx.graph.StepFactory;
 import pl.dominikcebula.tools.wizardfx.graph.StepGraph;
