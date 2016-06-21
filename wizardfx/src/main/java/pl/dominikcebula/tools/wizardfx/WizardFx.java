@@ -19,9 +19,12 @@ public class WizardFx extends BorderPane
     {
         getStylesheets().add(getClass().getResource("wizardfx.css").toExternalForm());
 
-        setCenter(load("wizardfx-step-content.fxml", controller));
+        BorderPane innerPane = new BorderPane();
+        innerPane.setCenter(load("wizardfx-step-content.fxml", controller));
+        innerPane.setBottom(load("wizardfx-step-controls.fxml", controller));
+
         setLeft(load("wizardfx-step-list.fxml", controller));
-        setBottom(load("wizardfx-step-controls.fxml", controller));
+        setCenter(innerPane);
         steps.addListener(controller::updateSteps);
     }
 

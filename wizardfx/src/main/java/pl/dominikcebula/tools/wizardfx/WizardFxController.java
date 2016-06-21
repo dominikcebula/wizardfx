@@ -90,7 +90,7 @@ public class WizardFxController
     }
 
     @SuppressWarnings("unused")
-    public void onPrevious()
+    public void onBack()
     {
         if (canMoveToStep(currentStep, currentStep.previousStep()))
         {
@@ -134,7 +134,7 @@ public class WizardFxController
     private void updateLabelForStep(int currentStep, int lastStep)
     {
         labels.get(lastStep).getStyleClass().clear();
-        labels.get(currentStep).getStyleClass().add("active-step");
+        labels.get(currentStep).getStyleClass().add("active");
     }
 
     private void updateContentForStep(int currentStep)

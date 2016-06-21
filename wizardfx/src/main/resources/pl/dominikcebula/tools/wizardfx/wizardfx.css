@@ -1,3 +1,41 @@
-.active-step {
+BorderPane VBox#stepListContent {
+    -fx-padding: 5 5 5 5;
+    -fx-background-color: lightgrey;
+    -fx-border-style: solid;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: darkgrey;
+    -fx-spacing: 10;
+}
+
+BorderPane VBox#stepListContent Label {
+    -fx-border-color: dimgrey;
+    -fx-min-width: 200px;
+    -fx-alignment: center;
+    -fx-padding: 5 5 5 5;
+}
+
+BorderPane VBox#stepListContent Label.active {
+    -fx-background-color: dimgray;
+    -fx-text-fill: lightgrey;
     -fx-font-weight: bold;
+}
+
+BorderPane HBox#controls {
+    -fx-background-color: lightgrey;
+    -fx-alignment: center-right;
+    -fx-spacing: 5;
+    -fx-border-style: solid;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: darkgrey;
+    -fx-padding: 5 5 5 5;
+}
+
+BorderPane HBox#controls Button {
+    -fx-border-color: darkgreen;
+    -fx-text-fill: darkgreen;
+}
+
+BorderPane HBox#controls Button.finish {
+    -fx-spacing: 0 0 0 100;
+    -fx-hgap: 500;
 }
