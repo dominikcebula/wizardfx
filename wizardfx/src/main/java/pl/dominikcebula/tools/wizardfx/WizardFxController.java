@@ -2,7 +2,7 @@ package pl.dominikcebula.tools.wizardfx;
 
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import pl.dominikcebula.tools.wizardfx.graph.Step;
 import pl.dominikcebula.tools.wizardfx.graph.StepFactory;
@@ -12,7 +12,7 @@ public class WizardFxController
 {
     @FXML
     @SuppressWarnings("unused")
-    private Pane stepContent;
+    private BorderPane stepContent;
     @FXML
     @SuppressWarnings("unused")
     private VBox stepListContent;
@@ -72,7 +72,7 @@ public class WizardFxController
 
     private void updateContentForStep(Step currentStep)
     {
-        stepContent.getChildren().setAll(currentStep.getContent());
+        stepContent.setCenter(currentStep.getContent());
     }
 
     public void setControllerPackage(String controllerPackage)
