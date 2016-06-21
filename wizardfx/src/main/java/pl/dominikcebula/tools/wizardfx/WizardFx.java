@@ -1,6 +1,7 @@
 package pl.dominikcebula.tools.wizardfx;
 
 import javafx.beans.DefaultProperty;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
@@ -9,10 +10,10 @@ import java.io.IOException;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
-@DefaultProperty("steps")
+@DefaultProperty("controllerClasses")
 public class WizardFx extends BorderPane
 {
-    private final ObservableList<Controller> steps = observableArrayList();
+    private final ObservableList<ControllerClass> controllerClasses = observableArrayList();
     private WizardFxController controller = new WizardFxController();
 
     public WizardFx() throws IOException
@@ -25,7 +26,7 @@ public class WizardFx extends BorderPane
 
         setLeft(load("wizardfx-step-list.fxml", controller));
         setCenter(innerPane);
-        steps.addListener(controller::updateControllers);
+        controllerClasses.addListener(this::controllerClassesChanged);
     }
 
     private <T> T load(String fxml, WizardFxController controller) throws IOException
@@ -33,6 +34,14 @@ public class WizardFx extends BorderPane
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         loader.setController(controller);
         return loader.load();
+    }
+
+    private void controllerClassesChanged(ListChangeListener.Change<? extends ControllerClass> event)
+    {
+        while (event.next())
+        {
+            event.getAddedSubList().forEach(controller::addController);
+        }
     }
 
     public String getControllerPackage()
@@ -46,8 +55,8 @@ public class WizardFx extends BorderPane
     }
 
     @SuppressWarnings("unused")
-    public ObservableList<Controller> getSteps()
+    public ObservableList<ControllerClass> getControllerClasses()
     {
-        return steps;
+        return controllerClasses;
     }
 }

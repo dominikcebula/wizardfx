@@ -2,22 +2,22 @@ package pl.dominikcebula.tools.wizardfx.graph;
 
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import pl.dominikcebula.tools.wizardfx.StepController;
+import pl.dominikcebula.tools.wizardfx.Controller;
 
 public class Step
 {
-    private final StepController controller;
+    private final Controller controller;
     private final Label label;
     private final Node content;
 
-    public Step(StepController controller, Label label, Node content)
+    public Step(Controller controller, Label label, Node content)
     {
         this.controller = controller;
         this.label = label;
         this.content = content;
     }
 
-    public StepController getController()
+    public Controller getController()
     {
         return controller;
     }

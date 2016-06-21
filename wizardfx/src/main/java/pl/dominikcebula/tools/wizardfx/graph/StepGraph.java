@@ -1,6 +1,6 @@
 package pl.dominikcebula.tools.wizardfx.graph;
 
-import pl.dominikcebula.tools.wizardfx.StepController;
+import pl.dominikcebula.tools.wizardfx.Controller;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -57,8 +57,8 @@ public class StepGraph
 
     private boolean canMoveToStep(Step from, Step to)
     {
-        StepController controllerFrom = from.getController();
-        StepController controllerTo = to.getController();
+        Controller controllerFrom = from.getController();
+        Controller controllerTo = to.getController();
 
         return from != to && controllerFrom.canExit() && controllerTo.canEnter();
     }

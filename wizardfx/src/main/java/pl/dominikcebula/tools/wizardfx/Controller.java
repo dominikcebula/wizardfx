@@ -1,19 +1,30 @@
 package pl.dominikcebula.tools.wizardfx;
 
-import javafx.beans.DefaultProperty;
-
-@DefaultProperty("name")
-public class Controller
+public abstract class Controller
 {
-    private String name;
+    public abstract String getStepName();
 
-    public String getName()
+    public abstract String getStepFxml();
+
+    public void initialize()
     {
-        return name;
     }
 
-    public void setName(String name)
+    public boolean canEnter()
     {
-        this.name = name;
+        return true;
+    }
+
+    public void onEnter()
+    {
+    }
+
+    public boolean canExit()
+    {
+        return true;
+    }
+
+    public void onExit()
+    {
     }
 }

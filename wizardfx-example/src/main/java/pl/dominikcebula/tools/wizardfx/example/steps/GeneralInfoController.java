@@ -1,18 +1,19 @@
 package pl.dominikcebula.tools.wizardfx.example.steps;
 
-import pl.dominikcebula.tools.wizardfx.StepController;
+import pl.dominikcebula.tools.wizardfx.Controller;
 
 @SuppressWarnings("unused")
-public class AddressInfoStepController extends StepController
+public class GeneralInfoController extends Controller
 {
     @Override
     public String getStepName()
     {
-        return "Address";
+        return "General Info";
     }
 
+    @Override
     public String getStepFxml()
     {
-        return "address-info-step.fxml";
+        return "general-info-step.fxml";
     }
 }

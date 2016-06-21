@@ -4,32 +4,32 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import pl.dominikcebula.tools.wizardfx.Controller;
-import pl.dominikcebula.tools.wizardfx.StepController;
-import pl.dominikcebula.tools.wizardfx.StepControllerFactory;
+import pl.dominikcebula.tools.wizardfx.ControllerClass;
+import pl.dominikcebula.tools.wizardfx.ControllerFactory;
 
 import java.io.IOException;
 
 public class StepFactory
 {
-    private StepControllerFactory controllerFactory = new StepControllerFactory();
+    private ControllerFactory controllerFactory = new ControllerFactory();
 
-    public Step createStep(String controllerPackage, Controller controller)
+    public Step createStep(String controllerPackage, ControllerClass controllerClass)
     {
-        StepController stepController = controllerFactory.createController(controllerPackage, controller);
+        Controller controller = controllerFactory.createController(controllerPackage, controllerClass);
 
         return new Step(
-                stepController,
-                createLabelForController(stepController),
-                createContentForController(stepController)
+                controller,
+                createLabelForController(controller),
+                createContentForController(controller)
         );
     }
 
-    private Label createLabelForController(StepController controller)
+    private Label createLabelForController(Controller controller)
     {
         return new Label(controller.getStepName());
     }
 
-    private Node createContentForController(StepController controller)
+    private Node createContentForController(Controller controller)
     {
         try
         {

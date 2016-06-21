@@ -1,9 +1,9 @@
 package pl.dominikcebula.tools.wizardfx.example.steps;
 
-import pl.dominikcebula.tools.wizardfx.StepController;
+import pl.dominikcebula.tools.wizardfx.Controller;
 
 @SuppressWarnings("unused")
-public class SummaryStepController extends StepController
+public class SummaryController extends Controller
 {
     @Override
     public String getStepName()

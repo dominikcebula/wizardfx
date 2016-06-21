@@ -1,6 +1,5 @@
 package pl.dominikcebula.tools.wizardfx;
 
-import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -20,17 +19,9 @@ public class WizardFxController
     private StepGraph stepGraph = new StepGraph();
     private String controllerPackage;
 
-    public void updateControllers(ListChangeListener.Change<? extends Controller> event)
+    public void addController(ControllerClass controllerClass)
     {
-        while (event.next())
-        {
-            event.getAddedSubList().forEach(this::addController);
-        }
-    }
-
-    private void addController(Controller controller)
-    {
-        Step step = stepFactory.createStep(controllerPackage, controller);
+        Step step = stepFactory.createStep(controllerPackage, controllerClass);
         stepGraph.addStep(step);
         stepListContent.getChildren().add(step.getLabel());
 

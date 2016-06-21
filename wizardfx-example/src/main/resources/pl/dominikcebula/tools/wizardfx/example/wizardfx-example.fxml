@@ -7,10 +7,10 @@
         <WizardFx>
             <controllerPackage>pl.dominikcebula.tools.wizardfx.example.steps</controllerPackage>
 
-            <Controller>GeneralInfoStepController</Controller>
-            <Controller>CustomerInfoStepController</Controller>
-            <Controller>AddressInfoStepController</Controller>
-            <Controller>SummaryStepController</Controller>
+            <ControllerClass>GeneralInfoController</ControllerClass>
+            <ControllerClass>CustomerInfoController</ControllerClass>
+            <ControllerClass>AddressInfoController</ControllerClass>
+            <ControllerClass>SummaryController</ControllerClass>
         </WizardFx>
     </center>
 </BorderPane>
