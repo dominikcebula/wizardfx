@@ -27,30 +27,25 @@ public class StepGraph
 
     public void moveToPrevious()
     {
-        if (canMoveToStep(stepPointer.getCurrentStep(), stepPointer.getPreviousStep().getCurrentStep()))
-        {
-            stepPointer.getCurrentStep().getController().onExit();
-            stepPointer = stepPointer.getPreviousStep();
-            stepPointer.getCurrentStep().getController().onEnter();
-        }
+        moveTo(stepPointer.getPreviousStep());
     }
 
     public void moveToNext()
     {
-        if (canMoveToStep(stepPointer.getCurrentStep(), stepPointer.getNextStep().getCurrentStep()))
-        {
-            stepPointer.getCurrentStep().getController().onExit();
-            stepPointer = stepPointer.getNextStep();
-            stepPointer.getCurrentStep().getController().onEnter();
-        }
+        moveTo(stepPointer.getNextStep());
     }
 
     public void moveToLast()
     {
-        if (canMoveToStep(stepPointer.getCurrentStep(), stepPointer.getFinishStep().getCurrentStep()))
+        moveTo(stepPointer.getFinishStep());
+    }
+
+    private void moveTo(StepPointer target)
+    {
+        if (canMoveToStep(stepPointer.getCurrentStep(), target.getCurrentStep()))
         {
             stepPointer.getCurrentStep().getController().onExit();
-            stepPointer = stepPointer.getFinishStep();
+            stepPointer = target;
             stepPointer.getCurrentStep().getController().onEnter();
         }
     }
