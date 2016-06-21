@@ -1,9 +1,9 @@
 package pl.dominikcebula.tools.wizardfx.example.steps;
 
-import pl.dominikcebula.tools.wizardfx.WizardFxStepController;
+import pl.dominikcebula.tools.wizardfx.StepController;
 
 @SuppressWarnings("unused")
-public class SummaryStepController implements WizardFxStepController
+public class SummaryStepController extends StepController
 {
     @Override
     public String getStepName()
@@ -15,29 +15,5 @@ public class SummaryStepController implements WizardFxStepController
     public String getStepFxml()
     {
         return "summary-step.fxml";
-    }
-
-    @Override
-    public boolean canEnter()
-    {
-        return true;
-    }
-
-    @Override
-    public void onEnter()
-    {
-
-    }
-
-    @Override
-    public boolean canExit()
-    {
-        return true;
-    }
-
-    @Override
-    public void onExit()
-    {
-
     }
 }

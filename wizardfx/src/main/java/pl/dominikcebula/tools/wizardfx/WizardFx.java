@@ -25,7 +25,7 @@ public class WizardFx extends BorderPane
 
         setLeft(load("wizardfx-step-list.fxml", controller));
         setCenter(innerPane);
-        steps.addListener(controller::updateSteps);
+        steps.addListener(controller::updateControllers);
     }
 
     private <T> T load(String fxml, WizardFxController controller) throws IOException
