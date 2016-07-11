@@ -7,18 +7,18 @@ import javafx.stage.Stage;
 
 public class OrderWizardFxExample extends Application
 {
-    public static void main(String... args)
-    {
-        Application.launch(OrderWizardFxExample.class, args);
-    }
+   public static void main(String... args)
+   {
+      Application.launch(OrderWizardFxExample.class, args);
+   }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception
-    {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("wizardfx-example.fxml"))));
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+      primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("wizardfx-example.fxml"))));
 
-        primaryStage.setWidth(820);
-        primaryStage.setHeight(500);
-        primaryStage.show();
-    }
+      primaryStage.setWidth(820);
+      primaryStage.setHeight(500);
+      primaryStage.show();
+   }
 }

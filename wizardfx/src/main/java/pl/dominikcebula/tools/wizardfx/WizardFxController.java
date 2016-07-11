@@ -1,79 +1,44 @@
 package pl.dominikcebula.tools.wizardfx;
 
 import javafx.fxml.FXML;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-import pl.dominikcebula.tools.wizardfx.controller.ControllerClass;
-import pl.dominikcebula.tools.wizardfx.graph.Step;
-import pl.dominikcebula.tools.wizardfx.graph.StepFactory;
-import pl.dominikcebula.tools.wizardfx.graph.StepGraph;
+import javafx.scene.layout.*;
+import pl.dominikcebula.tools.wizardfx.graph.*;
+import pl.dominikcebula.tools.wizardfx.step.Step;
 
 public class WizardFxController
 {
-    @FXML
-    @SuppressWarnings("unused")
-    private BorderPane stepContent;
-    @FXML
-    @SuppressWarnings("unused")
-    private VBox stepListContent;
-    private StepFactory stepFactory = new StepFactory();
-    private StepGraph stepGraph = new StepGraph();
-    private String controllerPackage;
+   @FXML
+   @SuppressWarnings("unused")
+   private BorderPane stepContent;
+   @FXML
+   @SuppressWarnings("unused")
+   private VBox stepListContent;
+   private NodeFactory nodeFactory = new NodeFactory();
+   private NodeGraph nodeGraph = new NodeGraph();
 
-    public void addController(ControllerClass controllerClass)
-    {
-        Step step = stepFactory.createStep(controllerPackage, controllerClass);
-        stepGraph.addStep(step);
-        stepListContent.getChildren().add(step.getLabel());
+   public void addStep(Step step)
+   {
+      Node node = nodeFactory.createStep(step, nodeGraph, this);
+      nodeGraph.addStep(node);
+      stepListContent.getChildren().add(node.getLabel());
 
-        update(stepGraph.getCurrentStep(), stepGraph.getLastStep());
-    }
+      update();
+   }
 
-    @SuppressWarnings("unused")
-    public void onBack()
-    {
-        stepGraph.moveToPrevious();
-        update(stepGraph.getCurrentStep(), stepGraph.getLastStep());
-    }
+   public void update()
+   {
+      updateLabelForStep(nodeGraph.getCurrentStep(), nodeGraph.getLastStep());
+      updateContentForStep(nodeGraph.getCurrentStep());
+   }
 
-    @SuppressWarnings("unused")
-    public void onNext()
-    {
-        stepGraph.moveToNext();
-        update(stepGraph.getCurrentStep(), stepGraph.getLastStep());
-    }
+   private void updateContentForStep(Node currentNode)
+   {
+      stepContent.setCenter(currentNode.getContent());
+   }
 
-    @SuppressWarnings("unused")
-    public void onFinish()
-    {
-        stepGraph.moveToLast();
-        update(stepGraph.getCurrentStep(), stepGraph.getLastStep());
-    }
-
-    private void update(Step currentStep, Step lastStep)
-    {
-        updateLabelForStep(currentStep, lastStep);
-        updateContentForStep(currentStep);
-    }
-
-    private void updateLabelForStep(Step currentStep, Step lastStep)
-    {
-        lastStep.getLabel().getStyleClass().clear();
-        currentStep.getLabel().getStyleClass().add("active");
-    }
-
-    private void updateContentForStep(Step currentStep)
-    {
-        stepContent.setCenter(currentStep.getContent());
-    }
-
-    public void setControllerPackage(String controllerPackage)
-    {
-        this.controllerPackage = controllerPackage;
-    }
-
-    public String getControllerPackage()
-    {
-        return controllerPackage;
-    }
+   private void updateLabelForStep(Node currentNode, Node lastNode)
+   {
+      lastNode.getLabel().getStyleClass().clear();
+      currentNode.getLabel().getStyleClass().add("active");
+   }
 }

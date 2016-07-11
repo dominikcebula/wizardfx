@@ -5,41 +5,41 @@
 <?import javafx.scene.layout.*?>
 <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8"
           xmlns:fx="http://javafx.com/fxml/1">
-    <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" prefWidth="50.0"/>
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-    </rowConstraints>
-    <children>
-        <Label text="Tax Group(s)" GridPane.rowIndex="3"/>
-        <Label text="Order Policy" GridPane.rowIndex="2"/>
-        <Label text="Order Code" GridPane.rowIndex="1"/>
-        <Label text="Order Type"/>
-        <Label text="Country" GridPane.rowIndex="8"/>
-        <Label text="Postal code" GridPane.rowIndex="7"/>
-        <Label text="City" GridPane.rowIndex="6"/>
-        <Label text="Line 2" GridPane.rowIndex="5"/>
-        <Label text="Line 1" GridPane.rowIndex="4"/>
-        <Label text="Date of birth" GridPane.rowIndex="11"/>
-        <Label text="Gender" GridPane.rowIndex="12"/>
-        <Label text="Last Name" GridPane.rowIndex="10"/>
-        <Label text="First Name" GridPane.rowIndex="9"/>
-    </children>
-    <padding>
-        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-    </padding>
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES"/>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" prefWidth="50.0"/>
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+   </rowConstraints>
+   <children>
+      <Label text="Tax Group(s)" GridPane.rowIndex="3"/>
+      <Label text="Order Policy" GridPane.rowIndex="2"/>
+      <Label text="Order Code" GridPane.rowIndex="1"/>
+      <Label text="Order Type"/>
+      <Label text="Country" GridPane.rowIndex="8"/>
+      <Label text="Postal code" GridPane.rowIndex="7"/>
+      <Label text="City" GridPane.rowIndex="6"/>
+      <Label text="Line 2" GridPane.rowIndex="5"/>
+      <Label text="Line 1" GridPane.rowIndex="4"/>
+      <Label text="Date of birth" GridPane.rowIndex="11"/>
+      <Label text="Gender" GridPane.rowIndex="12"/>
+      <Label text="Last Name" GridPane.rowIndex="10"/>
+      <Label text="First Name" GridPane.rowIndex="9"/>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+   </padding>
 </GridPane>

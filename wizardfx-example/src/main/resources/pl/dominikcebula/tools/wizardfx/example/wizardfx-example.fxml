@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.BorderPane?>
-<?import pl.dominikcebula.tools.wizardfx.controller.ControllerClass?>
+<?import pl.dominikcebula.tools.wizardfx.step.*?>
 <?import pl.dominikcebula.tools.wizardfx.WizardFx?>
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-    <center>
-        <WizardFx>
-            <controllerPackage>pl.dominikcebula.tools.wizardfx.example.steps</controllerPackage>
+   <center>
+      <WizardFx>
+         <Step>
+            <id>General</id>
+            <name>General Info</name>
+            <controller>pl.dominikcebula.tools.wizardfx.example.steps.GeneralInfoController</controller>
+            <contentView>general-info-step.fxml</contentView>
+         </Step>
 
-            <ControllerClass>GeneralInfoController</ControllerClass>
-            <ControllerClass>CustomerInfoController</ControllerClass>
-            <ControllerClass>AddressInfoController</ControllerClass>
-            <ControllerClass>SummaryController</ControllerClass>
-        </WizardFx>
-    </center>
+         <Step>
+            <id>Customer</id>
+            <name>Customer Info</name>
+            <controller>pl.dominikcebula.tools.wizardfx.example.steps.CustomerInfoController</controller>
+            <contentView>customer-info-step.fxml</contentView>
+         </Step>
+
+         <Step>
+            <id>Address</id>
+            <name>Address Info</name>
+            <controller>pl.dominikcebula.tools.wizardfx.example.steps.AddressInfoController</controller>
+            <contentView>address-info-step.fxml</contentView>
+         </Step>
+
+         <Step>
+            <id>Summary</id>
+            <name>Summary Info</name>
+            <controller>pl.dominikcebula.tools.wizardfx.example.steps.SummaryController</controller>
+            <contentView>summary-step.fxml</contentView>
+         </Step>
+      </WizardFx>
+   </center>
 </BorderPane>
