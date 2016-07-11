@@ -1,18 +1,20 @@
 package pl.dominikcebula.tools.wizardfx.graph;
 
-import javafx.scene.control.Label;
-import pl.dominikcebula.tools.wizardfx.step.Controller;
+import javafx.scene.control.Button;
+import pl.dominikcebula.tools.wizardfx.step.*;
 
 public class Node
 {
    private final Controller controller;
-   private final Label label;
+   private Step step;
+   private final Button label;
    private final javafx.scene.Node content;
 
-   public Node(Controller controller, Label label, javafx.scene.Node content)
+   public Node(Step step, Controller controller, Button button, javafx.scene.Node content)
    {
+      this.step = step;
       this.controller = controller;
-      this.label = label;
+      this.label = button;
       this.content = content;
    }
 
@@ -21,7 +23,12 @@ public class Node
       return controller;
    }
 
-   public Label getLabel()
+   public Step getStep()
+   {
+      return step;
+   }
+
+   public Button getButton()
    {
       return label;
    }

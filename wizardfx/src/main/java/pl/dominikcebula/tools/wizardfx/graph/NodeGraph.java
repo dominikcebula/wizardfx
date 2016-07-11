@@ -2,16 +2,18 @@ package pl.dominikcebula.tools.wizardfx.graph;
 
 import java.util.*;
 
-import pl.dominikcebula.tools.wizardfx.step.Controller;
+import pl.dominikcebula.tools.wizardfx.step.*;
 
 public class NodeGraph
 {
    private List<Node> nodes = new LinkedList<>();
+   private Map<Step, Integer> stepToIndexMap = new HashMap<>();
    private NodePointer nodePointer = new NodePointer(nodes);
 
    public void addStep(Node node)
    {
       nodes.add(node);
+      stepToIndexMap.put(node.getStep(), nodes.size() - 1);
    }
 
    public Node getCurrentStep()
@@ -39,6 +41,11 @@ public class NodeGraph
       moveTo(nodePointer.getFinishStep());
    }
 
+   public void moveToStep(Step step)
+   {
+      moveTo(nodePointer.getStep(stepToIndexMap.get(step)));
+   }
+
    private void moveTo(NodePointer target)
    {
       if (canMoveToStep(nodePointer.getCurrentStep(), target.getCurrentStep()))
@@ -54,6 +61,6 @@ public class NodeGraph
       Controller controllerFrom = from.getController();
       Controller controllerTo = to.getController();
 
-      return from != to && controllerFrom.canExit() && controllerTo.canEnter();
+      return from != to && controllerFrom.canExit(to.getStep()) && controllerTo.canEnter(from.getStep());
    }
 }

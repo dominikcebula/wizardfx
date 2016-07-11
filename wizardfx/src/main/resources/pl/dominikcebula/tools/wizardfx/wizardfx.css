@@ -7,14 +7,16 @@ BorderPane VBox#stepListContent {
     -fx-spacing: 10;
 }
 
-BorderPane VBox#stepListContent Label {
+BorderPane VBox#stepListContent Button {
     -fx-border-color: dimgrey;
+    -fx-background-color: lightgrey;
     -fx-min-width: 200px;
     -fx-alignment: center;
     -fx-padding: 5 5 5 5;
+    -fx-cursor: hand;
 }
 
-BorderPane VBox#stepListContent Label.active {
+BorderPane VBox#stepListContent Button.active {
     -fx-background-color: dimgray;
     -fx-text-fill: lightgrey;
     -fx-font-weight: bold;

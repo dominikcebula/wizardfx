@@ -20,6 +20,11 @@ public class NodePointer
       this.lastStepId = lastStepId;
    }
 
+   public NodePointer getStep(int stepId)
+   {
+      return new NodePointer(nodes, stepId, currentStepId);
+   }
+
    public Node getCurrentStep()
    {
       return nodes.get(currentStepId);

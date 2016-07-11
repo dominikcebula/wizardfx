@@ -19,6 +19,13 @@ public abstract class Controller
    }
 
    @SuppressWarnings("unused")
+   public void onMoveTo(Step step)
+   {
+      nodeGraph.moveToStep(step);
+      wizardController.update();
+   }
+
+   @SuppressWarnings("unused")
    public void onBack()
    {
       nodeGraph.moveToPrevious();
@@ -43,7 +50,7 @@ public abstract class Controller
    {
    }
 
-   public boolean canEnter()
+   public boolean canEnter(Step previousStep)
    {
       return true;
    }
@@ -52,7 +59,7 @@ public abstract class Controller
    {
    }
 
-   public boolean canExit()
+   public boolean canExit(Step nextStep)
    {
       return true;
    }

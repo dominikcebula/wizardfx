@@ -20,25 +20,25 @@ public class WizardFxController
    {
       Node node = nodeFactory.createStep(step, nodeGraph, this);
       nodeGraph.addStep(node);
-      stepListContent.getChildren().add(node.getLabel());
+      stepListContent.getChildren().add(node.getButton());
 
       update();
    }
 
    public void update()
    {
-      updateLabelForStep(nodeGraph.getCurrentStep(), nodeGraph.getLastStep());
+      updateButtonForStep(nodeGraph.getCurrentStep(), nodeGraph.getLastStep());
       updateContentForStep(nodeGraph.getCurrentStep());
+   }
+
+   private void updateButtonForStep(Node currentNode, Node lastNode)
+   {
+      lastNode.getButton().getStyleClass().clear();
+      currentNode.getButton().getStyleClass().add("active");
    }
 
    private void updateContentForStep(Node currentNode)
    {
       stepContent.setCenter(currentNode.getContent());
-   }
-
-   private void updateLabelForStep(Node currentNode, Node lastNode)
-   {
-      lastNode.getLabel().getStyleClass().clear();
-      currentNode.getLabel().getStyleClass().add("active");
    }
 }

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import pl.dominikcebula.tools.wizardfx.*;
 import pl.dominikcebula.tools.wizardfx.step.*;
@@ -16,8 +16,9 @@ public class NodeFactory
       Controller controller = createController(step, nodeGraph, wizardController);
 
       return new Node(
+         step,
          controller,
-         createLabelForStep(step),
+         createButtonForStep(controller, step),
          createContentForStep(controller, step)
       );
    }
@@ -38,9 +39,11 @@ public class NodeFactory
       }
    }
 
-   private Label createLabelForStep(Step step)
+   private Button createButtonForStep(Controller controller, Step step)
    {
-      return new Label(step.getName());
+      Button button = new Button(step.getName());
+      button.setOnAction((e) -> controller.onMoveTo(step));
+      return button;
    }
 
    private javafx.scene.Node createContentForStep(Controller controller, Step step)
