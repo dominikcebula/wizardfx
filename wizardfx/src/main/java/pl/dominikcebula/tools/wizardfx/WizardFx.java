@@ -14,14 +14,14 @@ import static javafx.collections.FXCollections.observableArrayList;
 public class WizardFx extends BorderPane
 {
    private final ObservableList<Step> steps = observableArrayList();
-   private WizardFxController controller = new WizardFxController();
+   private WizardFxController wizardController = new WizardFxController();
 
    public WizardFx() throws IOException
    {
       getStylesheets().add(getClass().getResource("wizardfx.css").toExternalForm());
 
-      setLeft(load("wizardfx-step-list.fxml", controller));
-      setCenter(load("wizardfx-step-content.fxml", controller));
+      setLeft(load("wizardfx-step-list.fxml", wizardController));
+      setCenter(load("wizardfx-step-content.fxml", wizardController));
       steps.addListener(this::stepsChanged);
    }
 
@@ -36,7 +36,7 @@ public class WizardFx extends BorderPane
    {
       while (event.next())
       {
-         event.getAddedSubList().forEach(controller::addStep);
+         event.getAddedSubList().forEach(wizardController::addStep);
       }
    }
 
@@ -44,5 +44,17 @@ public class WizardFx extends BorderPane
    public ObservableList<Step> getSteps()
    {
       return steps;
+   }
+
+   @SuppressWarnings("unused")
+   public String getModel()
+   {
+      return wizardController.getModel();
+   }
+
+   @SuppressWarnings("unused")
+   public void setModel(String model) throws ClassNotFoundException, InstantiationException, IllegalAccessException
+   {
+      wizardController.setModel(model);
    }
 }

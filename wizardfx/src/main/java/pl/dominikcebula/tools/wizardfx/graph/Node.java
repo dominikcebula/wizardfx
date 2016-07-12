@@ -6,7 +6,7 @@ import pl.dominikcebula.tools.wizardfx.step.*;
 public class Node
 {
    private final Controller controller;
-   private Step step;
+   private final Step step;
    private final Button label;
    private final javafx.scene.Node content;
 

@@ -21,8 +21,8 @@
       <Label text="Last Name" GridPane.rowIndex="1"/>
       <Label text="Gender" GridPane.rowIndex="2"/>
       <Label text="Date of birth" GridPane.rowIndex="3"/>
-      <TextField GridPane.columnIndex="1"/>
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+      <TextField GridPane.columnIndex="1" fx:id="firstNameTextField"/>
+      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="lastNameTextField"/>
       <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
       <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
    </children>

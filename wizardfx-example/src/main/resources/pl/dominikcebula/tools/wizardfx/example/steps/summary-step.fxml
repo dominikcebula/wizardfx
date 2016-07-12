@@ -3,11 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8"
-          xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0"/>
       <ColumnConstraints hgrow="SOMETIMES"/>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" prefWidth="50.0"/>
    </columnConstraints>
    <rowConstraints>
       <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
@@ -25,19 +24,33 @@
       <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
    </rowConstraints>
    <children>
-      <Label text="Tax Group(s)" GridPane.rowIndex="3"/>
-      <Label text="Order Policy" GridPane.rowIndex="2"/>
-      <Label text="Order Code" GridPane.rowIndex="1"/>
-      <Label text="Order Type"/>
-      <Label text="Country" GridPane.rowIndex="8"/>
-      <Label text="Postal code" GridPane.rowIndex="7"/>
-      <Label text="City" GridPane.rowIndex="6"/>
-      <Label text="Line 2" GridPane.rowIndex="5"/>
-      <Label text="Line 1" GridPane.rowIndex="4"/>
-      <Label text="Date of birth" GridPane.rowIndex="11"/>
-      <Label text="Gender" GridPane.rowIndex="12"/>
-      <Label text="Last Name" GridPane.rowIndex="10"/>
-      <Label text="First Name" GridPane.rowIndex="9"/>
+      <Label text="Order Type" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+      <Label text="Order Code" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+      <Label text="Order Policy" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+      <Label text="Tax Group(s)" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+      <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+      <Label text="Last Name" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+      <Label text="Gender" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+      <Label text="Date of birth" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+      <Label text="Line 1" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+      <Label text="Line 2" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+      <Label text="City" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+      <Label text="Postal code" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+      <Label text="Country" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="orderCodeLabel"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="firstNameLabel"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="5" fx:id="lastNameLabel"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="10" fx:id="cityLabel"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+      <Label GridPane.columnIndex="1" GridPane.rowIndex="12"/>
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>

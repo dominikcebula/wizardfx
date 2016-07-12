@@ -3,10 +3,11 @@ package pl.dominikcebula.tools.wizardfx.step;
 import pl.dominikcebula.tools.wizardfx.WizardFxController;
 import pl.dominikcebula.tools.wizardfx.graph.NodeGraph;
 
-public abstract class Controller
+public abstract class Controller<M extends Model>
 {
    protected NodeGraph nodeGraph;
    protected WizardFxController wizardController;
+   protected M model;
 
    public void setNodeGraph(NodeGraph nodeGraph)
    {
@@ -17,6 +18,13 @@ public abstract class Controller
    {
       this.wizardController = wizardController;
    }
+
+   public void setModel(M model)
+   {
+      this.model = model;
+   }
+
+   public abstract void bind();
 
    @SuppressWarnings("unused")
    public void onMoveTo(Step step)
@@ -44,10 +52,6 @@ public abstract class Controller
    {
       nodeGraph.moveToLast();
       wizardController.update();
-   }
-
-   public void initialize()
-   {
    }
 
    public boolean canEnter(Step previousStep)

@@ -18,9 +18,9 @@
    </rowConstraints>
    <children>
       <Label text="Order Type"/>
-      <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"/>
+      <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" fx:id="orderType"/>
       <Label text="Order Code" GridPane.rowIndex="1"/>
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="orderCodeTextField"/>
       <Label text="Order Policy" GridPane.rowIndex="2"/>
       <Label text="Tax Group(s)" GridPane.rowIndex="3"/>
       <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1"
@@ -28,11 +28,11 @@
          <children>
             <RadioButton mnemonicParsing="false" selected="true" text="A">
                <toggleGroup>
-                  <ToggleGroup fx:id="orderPolicy"/>
+                  <ToggleGroup fx:id="orderPolicyToggleGroup"/>
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="B" toggleGroup="$orderPolicy"/>
-            <RadioButton mnemonicParsing="false" text="C" toggleGroup="$orderPolicy"/>
+            <RadioButton mnemonicParsing="false" text="B" toggleGroup="$orderPolicyToggleGroup"/>
+            <RadioButton mnemonicParsing="false" text="C" toggleGroup="$orderPolicyToggleGroup"/>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>

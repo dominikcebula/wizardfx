@@ -3,7 +3,7 @@ package pl.dominikcebula.tools.wizardfx;
 import javafx.fxml.FXML;
 import javafx.scene.layout.*;
 import pl.dominikcebula.tools.wizardfx.graph.*;
-import pl.dominikcebula.tools.wizardfx.step.Step;
+import pl.dominikcebula.tools.wizardfx.step.*;
 
 public class WizardFxController
 {
@@ -13,12 +13,13 @@ public class WizardFxController
    @FXML
    @SuppressWarnings("unused")
    private VBox stepListContent;
+   private Model model;
    private NodeFactory nodeFactory = new NodeFactory();
    private NodeGraph nodeGraph = new NodeGraph();
 
    public void addStep(Step step)
    {
-      Node node = nodeFactory.createStep(step, nodeGraph, this);
+      Node node = nodeFactory.createNode(step, nodeGraph, model, this);
       nodeGraph.addStep(node);
       stepListContent.getChildren().add(node.getButton());
 
@@ -40,5 +41,22 @@ public class WizardFxController
    private void updateContentForStep(Node currentNode)
    {
       stepContent.setCenter(currentNode.getContent());
+   }
+
+   public String getModel()
+   {
+      return model.getClass().getName();
+   }
+
+   public void setModel(String modelClass) throws ClassNotFoundException, IllegalAccessException, InstantiationException
+   {
+      if (model == null)
+      {
+         model = (Model) Class.forName(modelClass).newInstance();
+      }
+      else
+      {
+         throw new IllegalArgumentException("Model for Wizard can be set only once");
+      }
    }
 }

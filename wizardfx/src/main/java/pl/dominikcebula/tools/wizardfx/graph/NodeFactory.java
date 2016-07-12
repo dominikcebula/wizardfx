@@ -11,26 +11,25 @@ import pl.dominikcebula.tools.wizardfx.step.*;
 
 public class NodeFactory
 {
-   public Node createStep(Step step, NodeGraph nodeGraph, WizardFxController wizardController)
+   public <M extends Model> Node createNode(Step step, NodeGraph nodeGraph, M model, WizardFxController wizardController)
    {
-      Controller controller = createController(step, nodeGraph, wizardController);
+      Controller<M> controller = createController(step, nodeGraph, model, wizardController);
+      Button button = createButtonForStep(controller, step);
+      javafx.scene.Node content = createContentForStep(controller, step);
+      controller.bind();
 
-      return new Node(
-         step,
-         controller,
-         createButtonForStep(controller, step),
-         createContentForStep(controller, step)
-      );
+      return new Node(step, controller, button, content);
    }
 
-   private Controller createController(Step step, NodeGraph nodeGraph, WizardFxController wizardController)
+   private <M extends Model> Controller<M> createController(Step step, NodeGraph nodeGraph, M model, WizardFxController wizardController)
    {
       try
       {
-         Controller controller = step.getController().newInstance();
+         Controller<M> controller = step.getController().newInstance();
          controller.setNodeGraph(nodeGraph);
          controller.setWizardController(wizardController);
-         controller.initialize();
+         validateModel(model);
+         controller.setModel(model);
          return controller;
       }
       catch (InstantiationException | IllegalAccessException e)
@@ -80,5 +79,13 @@ public class NodeFactory
          throw new IllegalArgumentException("Error while loading " + fxml);
       }
       return url;
+   }
+
+   private <M extends Model> void validateModel(M model)
+   {
+      if (model == null)
+      {
+         throw new IllegalArgumentException("Model for Wizard was not set");
+      }
    }
 }
