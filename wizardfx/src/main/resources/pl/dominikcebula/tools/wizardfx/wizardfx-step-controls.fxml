@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.HBox?>
 <HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:id="controls">
-   <Button text="Back" onAction="#onBack"/>
-   <Button text="Next" onAction="#onNext"/>
-   <Button text="Finish" onAction="#onFinish"/>
+   <Button text="Back" onAction="#onBack" fx:id="backButton"/>
+   <Button text="Next" onAction="#onNext" fx:id="nextButton"/>
+   <Button text="Finish" onAction="#onFinish" fx:id="finishButton"/>
 </HBox>

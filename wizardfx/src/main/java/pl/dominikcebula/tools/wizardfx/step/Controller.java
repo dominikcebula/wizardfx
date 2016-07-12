@@ -1,11 +1,20 @@
 package pl.dominikcebula.tools.wizardfx.step;
 
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import pl.dominikcebula.tools.wizardfx.WizardFxController;
 import pl.dominikcebula.tools.wizardfx.graph.NodeGraph;
 
 public abstract class Controller<M extends Model>
 {
+   @FXML
+   protected Button backButton;
+   @FXML
+   protected Button nextButton;
+   @FXML
+   protected Button finishButton;
+
    protected NodeGraph nodeGraph;
    protected WizardFxController wizardController;
    protected M model;
