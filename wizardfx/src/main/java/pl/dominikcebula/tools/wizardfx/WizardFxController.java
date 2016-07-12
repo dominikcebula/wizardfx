@@ -1,6 +1,7 @@
 package pl.dominikcebula.tools.wizardfx;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import pl.dominikcebula.tools.wizardfx.graph.*;
 import pl.dominikcebula.tools.wizardfx.step.*;
@@ -26,6 +27,11 @@ public class WizardFxController
       update();
    }
 
+   public Scene getScene()
+   {
+      return stepContent.getScene();
+   }
+
    public void update()
    {
       updateButtonForStep(nodeGraph.getCurrentStep(), nodeGraph.getLastStep());
@@ -43,9 +49,9 @@ public class WizardFxController
       stepContent.setCenter(currentNode.getContent());
    }
 
-   public String getModel()
+   public Model getModel()
    {
-      return model.getClass().getName();
+      return model;
    }
 
    public void setModel(String modelClass) throws ClassNotFoundException, IllegalAccessException, InstantiationException

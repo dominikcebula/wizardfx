@@ -1,4 +1,4 @@
-BorderPane VBox#stepListContent {
+WizardFx VBox#stepListContent {
     -fx-padding: 5 5 5 5;
     -fx-background-color: lightgrey;
     -fx-border-style: solid;
@@ -7,7 +7,7 @@ BorderPane VBox#stepListContent {
     -fx-spacing: 10;
 }
 
-BorderPane VBox#stepListContent Button {
+WizardFx VBox#stepListContent Button {
     -fx-border-color: dimgrey;
     -fx-background-color: lightgrey;
     -fx-min-width: 200px;
@@ -16,13 +16,13 @@ BorderPane VBox#stepListContent Button {
     -fx-cursor: hand;
 }
 
-BorderPane VBox#stepListContent Button.active {
+WizardFx VBox#stepListContent Button.active {
     -fx-background-color: dimgray;
     -fx-text-fill: lightgrey;
     -fx-font-weight: bold;
 }
 
-BorderPane HBox#controls {
+WizardFx HBox#controls {
     -fx-background-color: lightgrey;
     -fx-alignment: center-right;
     -fx-spacing: 5;
@@ -32,12 +32,12 @@ BorderPane HBox#controls {
     -fx-padding: 5 5 5 5;
 }
 
-BorderPane HBox#controls Button {
+WizardFx HBox#controls Button {
     -fx-border-color: darkgreen;
     -fx-text-fill: darkgreen;
 }
 
-BorderPane HBox#controls Button.finish {
+WizardFx HBox#controls Button.finish {
     -fx-spacing: 0 0 0 100;
     -fx-hgap: 500;
 }

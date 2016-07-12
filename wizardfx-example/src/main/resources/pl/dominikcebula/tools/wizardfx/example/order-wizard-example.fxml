@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import pl.dominikcebula.tools.wizardfx.step.*?>
+<?import pl.dominikcebula.tools.wizardfx.WizardFx?>
+<WizardFx>
+   <model>pl.dominikcebula.tools.wizardfx.example.OrderModel</model>
+
+   <Step>
+      <id>General</id>
+      <name>General Info</name>
+      <controller>pl.dominikcebula.tools.wizardfx.example.steps.GeneralInfoController</controller>
+      <contentView>general-info-step.fxml</contentView>
+   </Step>
+
+   <Step>
+      <id>Customer</id>
+      <name>Customer Info</name>
+      <controller>pl.dominikcebula.tools.wizardfx.example.steps.CustomerInfoController</controller>
+      <contentView>customer-info-step.fxml</contentView>
+   </Step>
+
+   <Step>
+      <id>Address</id>
+      <name>Address Info</name>
+      <controller>pl.dominikcebula.tools.wizardfx.example.steps.AddressInfoController</controller>
+      <contentView>address-info-step.fxml</contentView>
+   </Step>
+
+   <Step>
+      <id>Summary</id>
+      <name>Summary Info</name>
+      <controller>pl.dominikcebula.tools.wizardfx.example.steps.SummaryController</controller>
+      <contentView>summary-step.fxml</contentView>
+   </Step>
+</WizardFx>

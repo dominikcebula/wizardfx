@@ -24,4 +24,10 @@ public class SummaryController extends Controller<OrderModel>
       lastNameLabel.textProperty().bind(model.lastNameProperty());
       cityLabel.textProperty().bind(model.cityProperty());
    }
+
+   @Override
+   public void onFinish()
+   {
+      closeWizard();
+   }
 }
